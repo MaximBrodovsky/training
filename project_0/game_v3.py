@@ -18,29 +18,7 @@ def predict_number(number: int, number_range: tuple, count: int) -> int:
     else:
         return count + 1
 
-def random_predict(number:int=1) -> int:
-    """Рандомно угадываем число
-
-    Args:
-        number (int, optional): Загаданное число. Defaults to 1.
-
-    Returns:
-        int: Число попыток
-    """
-
-    count = 0
-
-    while True:
-        count += 1
-        predict_number = np.random.randint(1, 101) # предполагаемое число
-        if number == predict_number:
-            break # выход из цикла, если угадали
-    return(count)
-
-print(f'Количество попыток: {random_predict()}')
-
-
-def score_game(random_predict) -> int:
+def score_game(predict_number) -> int:
     """За какое количество попыток в среднем из 1000 подходов угадывает наш алгоритм
 
     Args:
@@ -63,9 +41,4 @@ def score_game(random_predict) -> int:
     return(score)
 
 # RUN
-score_game(random_predict)
-
-#print(predict_number(1, (1, 100), 0))
-#print(predict_number(100, (1, 100), 0))
-#print(predict_number(50, (1, 100), 0))
-#print(predict_number(86, (1, 100), 0))
+score_game(predict_number)
